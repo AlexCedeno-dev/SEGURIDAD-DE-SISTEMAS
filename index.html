@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cifrador y descifrador</title>
+</head>
+
+<body>
+
+    <h2>Sistema de Cifrado y Descifrado</h2>
+    <div class="card">
+   
+
+
+    <label>Método:</label>
+        <select id="metodo" onchange="toggleModulo()">
+            <option value="cesar">César</option>
+            <option value="atbash">Atbash</option>
+        </select>
+
+    <label>Acción:</label>
+        <select id="accion">
+            <option value="cifrar">Cifrar</option>
+            <option value="descifrar">Descifrar</option>
+        </select>
+
+    <label>Alfabeto:</label>
+        <select id="tipoAlfabeto" onchange="cargarAlfabeto()">
+            <option value="es">Español (A-Z + Ñ + números)</option>
+            <option value="mayus">Mayúsculas</option>
+            <option value="minus">Minúsculas</option>
+            <option value="num">Números</option>
+            <option value="custom">Personalizado</option>
+        </select>
+
+    <input id="alfabetoCustom" placeholder="Escribe tu alfabeto personalizado">
+
+    <div id="moduloDiv">
+        <label>Modulo (desplazamiento César):</label>
+            <input type="number" id="modulo" value="3">
+    </div>
+
+    <h3>Texto original</h3>
+        <textarea id="entrada"></textarea>
+
+        <button onclick="procesar()">Procesar</button>
+        <button onclick="limpiar()">Limpiar</button>
+
+    <h3>Resultado</h3>
+        <textarea id="salida"></textarea>
+
+    <h3>Proceso ASCII</h3>
+        <textarea id="ascii" readonly></textarea>
+    
+    <p id="infoMetodo"></p>
+
+    <script src="script.js"></script>
+
+    </div>
+
+</body>   
+
+</html>
+
