@@ -75,6 +75,21 @@ function cesar(texto, modulo){
     return res;
 }
 
+// ATAQUE FUERZA BRUTA CESAR
+function fuerzaBrutaCesar(texto){
+
+    let resultados = "";
+
+    for(let m = 0; m < ALFABETO_ACTUAL.length; m++){
+
+        let intento = cesar(texto, -m);
+
+        resultados += `Módulo ${m} -> ${intento}\n`;
+    }
+
+    return resultados;
+}
+
 //ATBASH
 function atbash(texto){
 
@@ -118,12 +133,21 @@ function procesar(){
 
     let resultado="";
 
-    if(metodo==="cesar"){
-        resultado =
-            accion==="cifrar"
-            ? cesar(texto,modulo)
-            : cesar(texto,-modulo);
-    }
+        if(metodo==="cesar"){
+
+            if(accion==="cifrar"){
+                resultado = cesar(texto,modulo);
+            }
+
+            else{
+
+                // DESCIFRADO AUTOMATICO
+                resultado = fuerzaBrutaCesar(texto);
+
+                document.getElementById("salida").value = resultado;
+                return;
+            }
+        }
     else{
         resultado = atbash(texto);
     }
